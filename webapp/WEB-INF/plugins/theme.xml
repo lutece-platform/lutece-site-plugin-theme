@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?><plug-in>
+    <!-- Plugin Informations --> 
+    <name>theme</name>
+    <class>fr.paris.lutece.plugins.theme.service.ThemePlugin</class>
+    <version>1.0.0</version>
+    <description>theme.plugin.description</description>
+    <documentation/>
+    <installation/>
+    <changes/>
+    <user-guide/>
+    <description>theme.plugin.description</description>
+    <provider>theme.plugin.provider</provider>
+    <provider-url>http://lutece.paris.fr</provider-url>
+    <icon-url>images/admin/skin/plugins/theme/theme.png</icon-url>
+    <copyright>Copyright 2001-2010 Mairie de Paris</copyright>
+    <core-version-dependency>
+		<min-core-version>2.4.3</min-core-version>
+		<max-core-version/>	
+    </core-version-dependency>
+    <db-pool-required>1</db-pool-required>
+
+    <!--Administration interface parameters-->
+    <admin-features>	
+        <admin-feature>
+            <feature-id>THEME_MANAGEMENT</feature-id>
+            <feature-title>theme.adminFeature.theme_management.name</feature-title>
+            <feature-description>theme.adminFeature.theme_management.description</feature-description>
+            <feature-level>0</feature-level>
+            <feature-url>jsp/admin/plugins/theme/ManageThemes.jsp</feature-url>
+           	<feature-icon-url>images/admin/skin/plugins/theme/theme.png</feature-icon-url>
+           	<feature-documentation-url>jsp/admin/documentation/AdminDocumentation.jsp?doc=admin-theme</feature-documentation-url>
+        </admin-feature>
+     </admin-features>
+     
+    <!-- RBAC Resources -->
+	<rbac-resource-types>
+		<rbac-resource-type>
+			<rbac-resource-type-class>
+				fr.paris.lutece.plugins.theme.service.ThemeResourceIdService
+			</rbac-resource-type-class>
+		</rbac-resource-type>
+	</rbac-resource-types>
+</plug-in>
