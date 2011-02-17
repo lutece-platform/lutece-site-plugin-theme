@@ -34,7 +34,7 @@
 package fr.paris.lutece.plugins.theme.service;
 
 import fr.paris.lutece.plugins.theme.business.ThemeHome;
-import fr.paris.lutece.plugins.theme.web.constants.ThemeConstants;
+import fr.paris.lutece.plugins.theme.utils.constants.ThemeConstants;
 import fr.paris.lutece.portal.business.style.Theme;
 import fr.paris.lutece.portal.service.plugin.Plugin;
 import fr.paris.lutece.portal.service.plugin.PluginService;

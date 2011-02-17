@@ -44,7 +44,7 @@ import org.apache.commons.lang.StringUtils;
 
 import fr.paris.lutece.plugins.theme.service.ThemeResourceIdService;
 import fr.paris.lutece.plugins.theme.service.ThemeService;
-import fr.paris.lutece.plugins.theme.web.constants.ThemeConstants;
+import fr.paris.lutece.plugins.theme.utils.constants.ThemeConstants;
 import fr.paris.lutece.portal.business.rbac.RBAC;
 import fr.paris.lutece.portal.business.style.Theme;
 import fr.paris.lutece.portal.service.admin.AccessDeniedException;
