@@ -46,4 +46,11 @@
 		<jiraProjectName>THEME</jiraProjectName>
 		<jiraComponentId>10481</jiraComponentId>
 	</properties>
+	
+	    <scm>
+		<connection>scm:svn:http://dev.lutece.paris.fr/svn/lutece/portal/trunk/plugins/cms/plugin-theme</connection>
+		<developerConnection>scm:svn:https://dev.lutece.paris.fr/svn/lutece/portal/trunk/plugins/cms/plugin-theme</developerConnection>
+		<url>http://dev.lutece.paris.fr/viewvc/lutece/portal/trunk/plugins/cms/plugin-theme/</url>
+    </scm>
+	
 </project>
