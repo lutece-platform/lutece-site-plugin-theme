@@ -1,45 +1,68 @@
-<div class="content-box" >
-	<h2 class="content-box-header">#i18n{theme.modify_theme.title}</h2>
-	<form method="post" action="jsp/admin/plugins/theme/DoModifyTheme.jsp">
-        <p>
-            <label>#i18n{theme.create_theme.codeTheme} * : </label>
-            <input type="text" name="code_theme" value="${theme.codeTheme}" size="10" maxlength="10" />
-        </p>
-        <p>
-            <label>#i18n{theme.create_theme.themeDescription} * : </label>
-            <input type="text" name="theme_description" value="${theme.themeDescription}" size="60" maxlength="60" />
-        </p>
-        <p>
-            <label>#i18n{theme.create_theme.pathImages} * : </label>
-            <input type="text" name="path_images" value="${theme.pathImages}" size="60" maxlength="60" />
-        </p>
-        <p>
-            <label>#i18n{theme.create_theme.pathCss} * : </label>
-            <input type="text" name="path_css" value="${theme.pathCss}" size="60" maxlength="60" />
-        </p>
-        <p>
-            <label>#i18n{theme.create_theme.pathJs} * : </label>
-            <input type="text" name="path_js" value="${theme.pathJs}" size="60" maxlength="60" />
-        </p>
-        <p>
-            <label>#i18n{theme.create_theme.themeAuthor} : </label>
-            <input type="text" name="theme_author" value="${theme.themeAuthor}" size="60" maxlength="60" />
-        </p>
-        <p>
-            <label>#i18n{theme.create_theme.themeAuthorUrl} : </label>
-            <input type="text" name="theme_author_url" value="${theme.themeAuthorUrl}" size="60" maxlength="60" />
-        </p>
-        <p>
-            <label>#i18n{theme.create_theme.themeVersion} : </label>
-            <input type="text" name="theme_version" value="${theme.themeVersion}" size="60" maxlength="60" />
-        </p>
-        <p>
-            <label>#i18n{theme.create_theme.themeLicence} : </label>
-            <input type="text" name="theme_licence" value="${theme.themeLicence}" size="60" maxlength="60" />
-        </p>
-        <p>
-            <input type="submit" value="#i18n{theme.modify_theme.buttonModify}" class="button" />
-            <input class="button" type="button" onclick="javascript:history.go(-1)" value="#i18n{portal.admin.message.buttonCancel}" />
-        </p>
-    </form>
+<div class="row" >
+	<div class="span8 offset2" >
+	<fieldset>
+	<legend>#i18n{theme.modify_theme.title}</legend>
+		<form class="form-horizontal" method="post" action="jsp/admin/plugins/theme/DoModifyTheme.jsp">
+			<div class="control-group">
+			<label class="control-label" > #i18n{theme.create_theme.codeTheme} * : </label>
+				<div class="controls">
+					<input type="text" name="code_theme" class="input-mini" value="${theme.codeTheme}" maxlength="10" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" > #i18n{theme.create_theme.themeDescription} * : </label>
+					<div class="controls">
+						<input type="text" name="theme_description" value="${theme.themeDescription}" maxlength="40" />
+					</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" > #i18n{theme.create_theme.pathImages} * : </label>
+					<div class="controls">
+						<input type="text" name="path_images" value="${theme.pathImages}" maxlength="40" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" > #i18n{theme.create_theme.pathCss} * : </label>
+					<div class="controls">
+						<input type="text" name="path_css" value="${theme.pathCss}" maxlength="40" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" > #i18n{theme.create_theme.pathJs} * : </label>
+				<div class="controls">
+					<input type="text" name="path_js" maxlength="40" value="${theme.pathJs}" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" > #i18n{theme.create_theme.themeAuthor} : </label>
+					<div class="controls">
+						<input type="text" name="theme_author"maxlength="40" value="${theme.themeAuthor}" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" > #i18n{theme.create_theme.themeAuthorUrl}: </label>
+					<div class="controls">
+						<input type="text" name="theme_author_url"  maxlength="40" value="${theme.themeAuthorUrl}"/>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" > #i18n{theme.create_theme.themeVersion} : </label>
+					<div class="controls">
+						<input type="text" name="theme_version" maxlength="40" value="${theme.themeVersion}" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" > #i18n{theme.create_theme.themeLicence} : </label>
+				<div class="controls">
+					<input type="text" name="theme_licence" maxlength="40" value="${theme.themeLicence}" />
+				</div>
+			</div>
+			<div class="form-actions">   
+				<button class="btn btn-primary" type="submit" name="save" ><i class="icon-ok icon-white"></i>&nbsp;#i18n{theme.modify_theme.buttonModify}</button>
+				<button class="btn btn-primary" onclick="javascript:window.history.back();" name="cancel"><i class="icon-remove-circle icon-white"></i>&nbsp;#i18n{portal.admin.message.buttonCancel}</button>
+			</div>
+		</form>
+    </fieldset>
+	</div>
 </div>
+

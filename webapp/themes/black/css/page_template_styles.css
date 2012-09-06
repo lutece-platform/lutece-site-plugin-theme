@@ -1,134 +1,78 @@
-body {
-	background-color: #5A5A5A;
-	color: #FF9900;
-}
+body {background-color: #5A5A5A;color: #FF9900;}
 
+/**************************************************/
+/* Banner styles                                  */
+/**************************************************/
 #banner {
-	background-color: #333333;
-	height: 7em;
-	margin-top: 2px;
-	background-image: url("../images/local/skin/header_background.png");	
-}
-
-#search {
-	text-align: right;
-}
-
-#header-link {
-	text-align: right;
-	display: inline;
-}
-
-#header-menu {
-	background-color:#757779;
-	padding: 30px 0px;
-}
-#menu-auth-label {
-	text-decoration: underline;
-	cursor: pointer;
-	color: #ddd;
-}
-#menu-auth-label-logged a, #menu-auth-label-logged {
-	text-transform: capitalize;
-	color: #ddd;
-}
-/***************************************************/
-#page {
-	background-color: #333;
-	padding-top: 1.4em;
-}
-
-#page a {
-	color: #fff;
-}
-
-.portlet-background-header {
-	background-image: url("../images/local/skin/title_background.png");
-	background-color:#2178B3;
-	font-size:1.4em;
-	font-weight:bold;
-	color:#FF9900;
-	padding:0.28em 1em;
-	border-bottom: 1px solid #efefef;
-}
-.portlet-background-content {
-	background-image: url("../images/local/skin/portlet_background2.png");
-	background-color: #606060;
-	background-repeat: repeat-x;
-	padding:1em;
-}
-.portlet {
-	background-image: url("../images/local/skin/portlet_background2.png");
-	background-color: #606060;
-	background-repeat: repeat-x;
-	padding:1em;
-}
-.portlet-header{
-	font-size:1.4em;
-	font-weight:bold;
-}
-.portlet-background-colored-content {
-	background-image: url("../images/local/skin/portlet_background.png");
-	background-repeat: repeat-x;
-	background-color: #7b7b7b;
-}
-/***************************************************/
-#footer1 {
-	background-color: #171717;
-}
-
-#footer1-subelement {
-	background-color: #515151;
-	color: #1F4772;
-	height:20em;
-	margin:1.5%;
-	width:97%;
-}
-
-.footer1-column {
-	margin-top: 1em;
-	width: 33%;
-	float: right;
-}
-
-a.first-level {
-	color: #FF9900;
-	font-size:1.4em;
-	font-weight:bold;
-	text-decoration:none;
-}
-
-a.last-level {
-	color: #fff;
-	font-size:0.9em;
-	text-decoration:none;
-	padding-left: 2em;
+height:7em;
+padding:4px 0 0 0;
+background-color: #333333;
+background-image: linear-gradient(bottom, #FFFFFF 1%, #333333 31%);
+background-image: -o-linear-gradient(bottom, #FFFFFF 1%, #333333 31%);
+background-image: -moz-linear-gradient(bottom, #FFFFFF 1%, #333333 31%);
+background-image: -webkit-linear-gradient(bottom, #FFFFFF 1%, #333333 31%);
+background-image: -ms-linear-gradient(bottom, #FFFFFF 1%, #333333 31%);
+background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.01, #FFFFFF),
+	color-stop(0.31, #333333)
+);
 }
 
 /***************************************************/
-#footer2 {
-	background-color: #444444;
-	height: 5em;
-	margin-bottom: 2px;
+/* Portlets styles                                 */
+/***************************************************/
+.portlet {background-color:#606060;padding:1em;border:1px solid #ced0d0;margin:5px 0;}
+.portlet-background-content {background-color: #606060;padding:1em;}
+.portlet-background-header, .portlet-background-colored-header {
+background-color: #2178B3;
+background-image: linear-gradient(bottom, #FFFFFF 1%, #333333 31%);
+background-image: -o-linear-gradient(bottom, #FFFFFF 1%, #333333 31%);
+background-image: -moz-linear-gradient(bottom, #FFFFFF 1%, #333333 31%);
+background-image: -webkit-linear-gradient(bottom, #FFFFFF 1%, #333333 31%);
+background-image: -ms-linear-gradient(bottom, #FFFFFF 1%, #333333 31%);
+background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.01, #FFFFFF),
+	color-stop(0.31, #333333)
+);
+font-size:1.4em;
+font-weight:bold;
+color:#EEE;
+padding:0.28em 1em;
+border-bottom: 1px solid #efefef;
 }
 
-#footer-links {
-	text-align: right;
-}
+/***************************************************/
+/* Footer                                          */
+/***************************************************/
+#footer1 {background-color: #171717;padding:0.2em;}
+#footer2 {background-color: #515151;color: #1F4772;height:5em;padding:10px 0;}
 
-#footer-rss {
-	text-align: right;
-}
 
-#footer2 a {
-	color: #ddd;
-}
 
-.-lutece-framed {
-	border: 1px solid #fff;
-	padding:0.8em;
-}
-.-lutece-input {
-	border:1px solid #81ADD7;
-	color:#5693C0;
-}
+/**************************************************/
+/* Lutece common styles                           */
+/**************************************************/
+
+/**************************************************/
+/* 		Mandatory: admin portlet buttons		  */
+/**************************************************/
+.btn-group-portlet{
+float:right;
+margin:5px 0 0 0;
+padding:4px;
+background-color:#DEDEDE; 
+-webkit-border-bottom-right-radius: 10px;
+-webkit-border-bottom-left-radius: 10px;
+-moz-border-radius-bottomright: 10px;
+-moz-border-radius-bottomleft: 10px;
+border-bottom-right-radius: 10px;
+border-bottom-left-radius: 10px;}
+.btn-group-portlet form{margin-bottom:2px !important;}
+.btn-group-portlet button{opacity:0.6;margin:0 1px;}
+.btn-group-portlet button:hover{opacity:1;}

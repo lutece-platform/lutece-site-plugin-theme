@@ -1,45 +1,67 @@
-<div class="content-box" >
-	<h2 class="content-box-header">#i18n{theme.create_theme.title}</h2>
-	<form method="post" action="jsp/admin/plugins/theme/DoCreateTheme.jsp">
-        <p>
-            <label>#i18n{theme.create_theme.codeTheme} * : </label>
-            <input type="text" name="code_theme" size="10" maxlength="10" />
-        </p>
-        <p>
-            <label>#i18n{theme.create_theme.themeDescription} * : </label>
-            <input type="text" name="theme_description" size="40" maxlength="40" />
-        </p>
-        <p>
-            <label>#i18n{theme.create_theme.pathImages} * : </label>
-            <input type="text" name="path_images" size="40" maxlength="40" />
-        </p>
-        <p>
-            <label>#i18n{theme.create_theme.pathCss} * : </label>
-            <input type="text" name="path_css" size="40" maxlength="40" />
-        </p>
-        <p>
-            <label>#i18n{theme.create_theme.pathJs} * : </label>
-            <input type="text" name="path_js" size="40" maxlength="40" />
-        </p>
-        <p>
-            <label>#i18n{theme.create_theme.themeAuthor} : </label>
-            <input type="text" name="theme_author" size="40" maxlength="40" />
-        </p>
-        <p>
-            <label>#i18n{theme.create_theme.themeAuthorUrl}: </label>
-            <input type="text" name="theme_author_url" size="40" maxlength="40" />
-        </p>
-        <p>
-            <label>#i18n{theme.create_theme.themeVersion} : </label>
-            <input type="text" name="theme_version" size="40" maxlength="40" value="0.1" />
-        </p>
-        <p>
-            <label>#i18n{theme.create_theme.themeLicence} : </label>
-            <input type="text" name="theme_licence" size="40" maxlength="40" value="Creative Commons by-nc-sa 2.5" />
-        </p>
-        <p>
-            <input type="submit" value="#i18n{theme.create_theme.buttonCreate}" class="button" />
-            <input class="button" type="button" onclick="javascript:history.go(-1)" value="#i18n{portal.admin.message.buttonCancel}" />
-        </p>
-    </form>
+<div class="row" >
+	<div class="span8 offset2" >
+	<fieldset>
+	<legend>#i18n{theme.create_theme.title}</legend>
+		<form class="form-horizontal" method="post" action="jsp/admin/plugins/theme/DoCreateTheme.jsp">
+			<div class="control-group">
+			<label class="control-label" > #i18n{theme.create_theme.codeTheme} * : </label>
+				<div class="controls">
+					<input type="text" name="code_theme" class="input-mini" maxlength="10" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" > #i18n{theme.create_theme.themeDescription} * : </label>
+					<div class="controls">
+						<input type="text" name="theme_description" maxlength="40" />
+					</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" > #i18n{theme.create_theme.pathImages} * : </label>
+					<div class="controls">
+						<input type="text" name="path_images" maxlength="40" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" > #i18n{theme.create_theme.pathCss} * : </label>
+					<div class="controls">
+						<input type="text" name="path_css" maxlength="40" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" > #i18n{theme.create_theme.pathJs} * : </label>
+				<div class="controls">
+					<input type="text" name="path_js" maxlength="40" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" > #i18n{theme.create_theme.themeAuthor} : </label>
+					<div class="controls">
+						<input type="text" name="theme_author"maxlength="40" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" > #i18n{theme.create_theme.themeAuthorUrl}: </label>
+					<div class="controls">
+						<input type="text" name="theme_author_url"  maxlength="40" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" > #i18n{theme.create_theme.themeVersion} : </label>
+					<div class="controls">
+						<input type="text" name="theme_version" maxlength="40" value="0.1" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" > #i18n{theme.create_theme.themeLicence} : </label>
+				<div class="controls">
+					<input type="text" name="theme_licence" maxlength="40" value="Creative Commons by-nc-sa 2.5" />
+				</div>
+			</div>
+			<div class="form-actions">   
+				<button class="btn btn-primary" type="submit" name="save" ><i class="icon-ok icon-white"></i>&nbsp;#i18n{theme.create_theme.buttonCreate}</button>
+				<button class="btn btn-primary" onclick="javascript:window.history.back();" name="cancel"><i class="icon-remove-circle icon-white"></i>&nbsp;#i18n{portal.admin.message.buttonCancel}</button>
+			</div>
+		</form>
+    </fieldset>
+	</div>
 </div>
