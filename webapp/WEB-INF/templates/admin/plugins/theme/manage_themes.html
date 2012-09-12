@@ -1,5 +1,6 @@
 <div class="row">
-	<div class="well span3">
+	<div class="container">
+	<div class="well span4">
 		<fieldset>
         <legend>#i18n{theme.manage_themes.previewLabel}</legend>
         <p><strong> #i18n{theme.manage_themes.name}:</strong>  ${theme_default.themeDescription}</p>
@@ -7,10 +8,14 @@
 		<p><strong>#i18n{theme.manage_themes.version}</strong> : ${theme_default.themeVersion}</p>
 		<p><strong>#i18n{theme.manage_themes.licence}</strong> : ${theme_default.themeLicence}</p>
 		<p><strong>#i18n{theme.manage_themes.preview}</strong> : </p>
-        <img src="${theme_default.pathImages}preview.png" class="span2" title="#i18n{theme.manage_themes.previewLabel} ${theme_default.themeDescription}" alt=" ${theme_default.themeDescription}" >
+        <ul class="thumbnails">
+			<li class="span4">
+			<img src="${theme_default.pathImages}preview.png"  title="#i18n{theme.manage_themes.previewLabel} ${theme_default.themeDescription}" alt=" ${theme_default.themeDescription}" >
+			</li>
+		</ul>
 		</fieldset>
 	</div>
-	<div class="span8">
+	<div class="span7">
 		<fieldset>
 		<legend>#i18n{theme.manage_themes.labelGlobalTheme}
 		<#if permission_create_theme>
@@ -76,4 +81,5 @@
 		</form>
 		</fieldset>
     </div>
+</div>
 </div>
