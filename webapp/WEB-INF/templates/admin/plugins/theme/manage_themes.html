@@ -54,16 +54,16 @@
 						</label>
 					</td>
 					<td>
-						<a class="btn btn-primary btn-mini" href="${base_url}jsp/site/Portal.jsp?theme_test=${theme.codeTheme}"  title="Preview" >
+						<a class="btn btn-primary btn-small" href="${base_url}jsp/site/Portal.jsp?theme_test=${theme.codeTheme}"  title="Preview" >
 							<i class="icon-eye-open icon-white"></i>
 						</a>
 						<#if actions?? && actions['MODIFY_THEME']>
-							<a class="btn btn-primary btn-mini" href="${base_url}jsp/admin/plugins/theme/ModifyTheme.jsp?code_theme=${theme.codeTheme}"  title="Edit" >
+							<a class="btn btn-primary btn-small" href="${base_url}jsp/admin/plugins/theme/ModifyTheme.jsp?code_theme=${theme.codeTheme}"  title="Edit" >
 								<i class="icon-edit icon-white"></i>
 							</a>
 						</#if>
 						<#if actions?? && actions['DELETE_THEME']>
-							<a class="btn btn-danger btn-mini" href="jsp/admin/plugins/theme/RemoveTheme.jsp?code_theme=${theme.codeTheme}"  title="Supprimer" >
+							<a class="btn btn-danger btn-small" href="jsp/admin/plugins/theme/RemoveTheme.jsp?code_theme=${theme.codeTheme}"  title="Supprimer" >
 								<i class="icon-trash icon-white"></i>
 							</a>
 						</#if>
