@@ -2,7 +2,7 @@
     <!-- Plugin Informations --> 
     <name>theme</name>
     <class>fr.paris.lutece.plugins.theme.service.ThemePlugin</class>
-    <version>3.0.1</version>
+    <version>4.0.0</version>
     <description>theme.plugin.description</description>
     <documentation/>
     <installation/>
