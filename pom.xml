@@ -10,7 +10,7 @@
 	<groupId>fr.paris.lutece.plugins</groupId>
 	<artifactId>plugin-theme</artifactId>
 	<packaging>lutece-plugin</packaging>
-	<version>4.0.0-SNAPSHOT</version>
+	<version>4.0.0</version>
 	<name>Lutece theme plugin</name>
 
 	<repositories>
@@ -48,9 +48,9 @@
 	</properties>
 	
 	    <scm>
-		<connection>scm:svn:http://dev.lutece.paris.fr/svn/lutece/portal/trunk/plugins/cms/plugin-theme</connection>
-		<developerConnection>scm:svn:https://dev.lutece.paris.fr/svn/lutece/portal/trunk/plugins/cms/plugin-theme</developerConnection>
-		<url>http://dev.lutece.paris.fr/viewvc/lutece/portal/trunk/plugins/cms/plugin-theme/</url>
+		<connection>scm:svn:http://dev.lutece.paris.fr/svn/lutece/portal/tags/plugin-theme-4.0.0</connection>
+		<developerConnection>scm:svn:https://dev.lutece.paris.fr/svn/lutece/portal/tags/plugin-theme-4.0.0</developerConnection>
+		<url>http://dev.lutece.paris.fr/viewvc/lutece/portal/tags/plugin-theme-4.0.0</url>
     </scm>
 	
 </project>
