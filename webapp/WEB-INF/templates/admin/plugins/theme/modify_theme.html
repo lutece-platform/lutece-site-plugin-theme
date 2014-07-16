@@ -1,69 +1,72 @@
-<div class="row-fluid">
-	<div class="span8 offset2" >
+<div class="row">
+	<div class="col-xs-12 col-sm-8 col-md-8 col-sm-offset-2 col-md-offset-2" >
 	<fieldset>
 	<legend>#i18n{theme.modify_theme.title}</legend>
 		<form class="form-horizontal" method="post" action="jsp/admin/plugins/theme/DoModifyTheme.jsp">
-			<div class="control-group">
-			<label class="control-label" > #i18n{theme.create_theme.codeTheme} *</label>
-				<div class="controls">
-					<input type="text" name="code_theme" class="input-small" value="${theme.codeTheme}" readonly >
+			<div class="form-group">
+			<label class="control-label col-xs-12 col-sm-3 col-md-3"> #i18n{theme.create_theme.codeTheme} *</label>
+				<div class="col-xs-12 col-sm-9 col-md-9">
+					<input type="text" class="form-control input-sm" name="code_theme" class="input-small" value="${theme.codeTheme}" readonly>
 				</div>
 			</div>
-			<div class="control-group">
-				<label class="control-label"> #i18n{theme.create_theme.themeDescription} *</label>
-					<div class="controls">
-						<input type="text" name="theme_description" value="${theme.themeDescription}" maxlength="40" />
+			<div class="form-group">
+				<label class="control-label col-xs-12 col-sm-3 col-md-3"> #i18n{theme.create_theme.themeDescription} *</label>
+					<div class="col-xs-12 col-sm-9 col-md-9">
+						<input type="text" class="form-control input-sm" name="theme_description" value="${theme.themeDescription}" maxlength="40" />
 					</div>
 			</div>
-			<div class="control-group">
-				<label class="control-label" > #i18n{theme.create_theme.pathImages} *</label>
-					<div class="controls">
-						<input type="text" name="path_images" value="${theme.pathImages}" maxlength="40" />
+			<div class="form-group">
+				<label class="control-label col-xs-12 col-sm-3 col-md-3" > #i18n{theme.create_theme.pathImages} *</label>
+					<div class="col-xs-12 col-sm-9 col-md-9">
+						<input type="text" class="form-control input-sm" name="path_images" value="${theme.pathImages}" maxlength="40" />
 				</div>
 			</div>
-			<div class="control-group">
-				<label class="control-label" > #i18n{theme.create_theme.pathCss} *</label>
-					<div class="controls">
-						<input type="text" name="path_css" value="${theme.pathCss}" maxlength="40" />
+			<div class="form-group">
+				<label class="control-label col-xs-12 col-sm-3 col-md-3" > #i18n{theme.create_theme.pathCss} *</label>
+					<div class="col-xs-12 col-sm-9 col-md-9">
+						<input type="text" class="form-control input-sm" name="path_css" value="${theme.pathCss}" maxlength="40" />
 				</div>
 			</div>
-			<div class="control-group">
-				<label class="control-label" > #i18n{theme.create_theme.pathJs} *</label>
-				<div class="controls">
-					<input type="text" name="path_js" maxlength="40" value="${theme.pathJs}" />
+			<div class="form-group">
+				<label class="control-label col-xs-12 col-sm-3 col-md-3" > #i18n{theme.create_theme.pathJs} *</label>
+				<div class="col-xs-12 col-sm-9 col-md-9">
+					<input type="text" class="form-control input-sm" name="path_js" maxlength="40" value="${theme.pathJs}" />
 				</div>
 			</div>
-			<div class="control-group">
-				<label class="control-label" > #i18n{theme.create_theme.themeAuthor}</label>
-					<div class="controls">
-						<input type="text" name="theme_author"maxlength="40" value="${theme.themeAuthor}" />
+			<div class="form-group">
+				<label class="control-label col-xs-12 col-sm-3 col-md-3" > #i18n{theme.create_theme.themeAuthor}</label>
+					<div class="col-xs-12 col-sm-9 col-md-9">
+						<input type="text" class="form-control input-sm" name="theme_author"maxlength="40" value="${theme.themeAuthor}" />
 				</div>
 			</div>
-			<div class="control-group">
-				<label class="control-label" > #i18n{theme.create_theme.themeAuthorUrl}</label>
-					<div class="controls">
-						<input type="text" name="theme_author_url"  maxlength="40" value="${theme.themeAuthorUrl}"/>
+			<div class="form-group">
+				<label class="control-label col-xs-12 col-sm-3 col-md-3" > #i18n{theme.create_theme.themeAuthorUrl}</label>
+					<div class="col-xs-12 col-sm-9 col-md-9">
+						<input type="text" class="form-control input-sm" name="theme_author_url"  maxlength="40" value="${theme.themeAuthorUrl}"/>
 				</div>
 			</div>
-			<div class="control-group">
-				<label class="control-label" > #i18n{theme.create_theme.themeVersion} : </label>
-					<div class="controls">
-						<input type="text" name="theme_version" maxlength="40" value="${theme.themeVersion}" />
+			<div class="form-group">
+				<label class="control-label col-xs-12 col-sm-3 col-md-3" > #i18n{theme.create_theme.themeVersion} : </label>
+					<div class="col-xs-12 col-sm-9 col-md-9">
+						<input type="text" class="form-control input-sm" name="theme_version" maxlength="40" value="${theme.themeVersion}" />
 				</div>
 			</div>
-			<div class="control-group">
-				<label class="control-label" > #i18n{theme.create_theme.themeLicence} : </label>
-				<div class="controls">
-					<input type="text" name="theme_licence" maxlength="40" value="${theme.themeLicence}" />
+			<div class="form-group">
+				<label class="control-label col-xs-12 col-sm-3 col-md-3" > #i18n{theme.create_theme.themeLicence} : </label>
+				<div class="col-xs-12 col-sm-9 col-md-9">
+					<input type="text" class="form-control input-sm" name="theme_licence" maxlength="40" value="${theme.themeLicence}" />
 				</div>
 			</div>
-			<div class="form-actions">   
-				<button class="btn btn-primary btn-small" type="submit">
-					<i class="icon-ok icon-white"></i>&nbsp;#i18n{theme.modify_theme.buttonModify}
-				</button>
-				<a class="btn btn-small" href="jsp/admin/plugins/theme/ManageThemes.jsp">
-					<i class="icon-remove-circle"></i>&nbsp;#i18n{portal.admin.message.buttonCancel}
-				</a>
+			<hr></hr>
+			<div class="form-group">
+				<div class="col-xs-12 col-sm-offset-3 col-sm-9 col-md-offset-3 col-md-9">
+					<button class="btn btn-primary btn-sm" type="submit">
+						<i class="glyphicon glyphicon-ok"></i>&nbsp;#i18n{theme.modify_theme.buttonModify}
+					</button>
+					<a class="btn btn-default btn-sm" href="jsp/admin/plugins/theme/ManageThemes.jsp">
+						<i class="glyphicon glyphicon-remove-circle"></i>&nbsp;#i18n{portal.admin.message.buttonCancel}
+					</a>
+				</div>
 			</div>
 		</form>
     </fieldset>
