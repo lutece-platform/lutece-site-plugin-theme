@@ -1,93 +1,101 @@
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
-        <fieldset>
-            <legend>#i18n{theme.manage_themes.labelGlobalTheme}
-                <#if permission_create_theme>
-                <div class="btn-group pull-right">
-                    <form class="form-inline" method="post" action="jsp/admin/plugins/theme/CreateTheme.jsp">
-                        <button class="btn btn-primary pull-right" type="submit" >
-                            <i class="glyphicon glyphicon-plus" ></i>&nbsp;<span class="hidden-phone" >#i18n{theme.manage_themes.buttonCreate}</span>
-                        </button>
-                    </form>
-                </div>
-                </#if>
-            </legend>
-    </div>
-</div>
-<div class="row">
-    <div class="col-xs-12 col-sm-4 col-md-4">
-        <div class="well">
-            <h3 class="text-info">
-                ${theme_default.themeDescription}
+        <div class="box box-info">
+			<div class="box-header">
+				<h3 class="box-title">#i18n{theme.manage_themes.labelGlobalTheme}</h3>
+				<div class="box-tools pull-right">	
+					<#if permission_create_theme>
+						<form class="form-inline" method="post" action="jsp/admin/plugins/theme/CreateTheme.jsp">
+							<button class="btn btn-primary btn-flat btn-xs" type="submit" >
+								<i class="glyphicon glyphicon-plus" ></i>&nbsp;<span class="hidden-phone" >#i18n{theme.manage_themes.buttonCreate}</span>
+							</button>
+						</form>
+					</#if>
+				</div>
+			</div>
+			<div class="box-body">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12">
+					<div class="alert alert-warning">
+						<i class="fa fa-warning"></i>&nbsp;<a href="jsp/admin/system/ManageCaches.jsp?plugin_name=">#i18n{theme.manage_themes.emptyCache}</a>
+					</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 col-sm-4 col-md-4">
+						<div class="box box-info">
+							<div class="box-header">
+								<h3 class="box-title">${theme_default.themeDescription}</h3>	
+							</div>
+							<div class="box-body">	
+								<span class="label label-success" title="&nbsp;">
+									<i class="glyphicon glyphicon-ok"></i>&nbsp;#i18n{theme.manage_themes.previewLabel}</span>
+								<a class="btn btn-primary btn-xs preview pull-right" href="${base_url}jsp/admin/plugins/theme/AdminThemePreview.jsp?theme_test=${theme_default.codeTheme}" title="Preview" >
+									<i class="glyphicon glyphicon-eye-open"></i>
+								</a>
+								<hr class="badge badge-inverse">
+								<ul>
+									<li><strong>#i18n{theme.manage_themes.author} :</strong>  <a href="${theme_default.themeAuthorUrl}" target="_author_url">${theme_default.themeAuthor}</a></li>
+									<li><strong>#i18n{theme.manage_themes.version}</strong> : ${theme_default.themeVersion}</li>
+									<li><strong>#i18n{theme.manage_themes.licence}</strong> : ${theme_default.themeLicence}</li>
+								</ul> 
+								<img class="img-rounded img-responsive" src="${theme_default.pathImages}preview.png"  title="#i18n{theme.manage_themes.previewLabel} ${theme_default.themeDescription}" alt=" ${theme_default.themeDescription}" >
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-8 col-md-8">
+						<#list themes_list as theme>
+							<#assign actions = actions_list[theme.codeTheme]>
+							<#if theme_default.themeDescription != theme.themeDescription >
+								<div class="box box-info">
+									<div class="box-header">
+										<h3 class="box-title">${theme.themeDescription}</h3>
+									</div>
+									<div class="box-body">	
+										<div class="row">
+											<div class="col-xs-12 col-sm-6 col-md-6">
+												<img class="img-rounded img-responsive" src="${theme.pathImages}preview.png"  title="#i18n{theme.manage_themes.previewLabel} ${theme.themeDescription}" alt="${theme.themeDescription}" >
+											</div>
+											<div class="col-xs-12 col-sm-6 col-md-6">
+												<p class="pull-right">
+													<a class="btn btn-primary btn-xs btn-flat preview" href="${base_url}jsp/admin/plugins/theme/AdminThemePreview.jsp?theme_test=${theme.codeTheme}" target="previews" title="#i18n{theme.manage_themes.preview}" >
+														<i class="glyphicon glyphicon-eye-open"></i>
+													</a>
 
-            </h3>	
-            <span class="label label-success" title="&nbsp;">
-                <i class="glyphicon glyphicon-ok"></i>&nbsp;#i18n{theme.manage_themes.previewLabel}</span>
-            <a class="btn btn-primary btn-xs preview pull-right" href="${base_url}jsp/admin/plugins/theme/AdminThemePreview.jsp?theme_test=${theme_default.codeTheme}" title="Preview" >
-                <i class="glyphicon glyphicon-eye-open"></i>
-            </a>
-            <hr class="badge badge-inverse">
-            <ul>
-                <li><strong>#i18n{theme.manage_themes.author} :</strong>  <a href="${theme_default.themeAuthorUrl}" target="_author_url">${theme_default.themeAuthor}</a></li>
-                <li><strong>#i18n{theme.manage_themes.version}</strong> : ${theme_default.themeVersion}</li>
-                <li><strong>#i18n{theme.manage_themes.licence}</strong> : ${theme_default.themeLicence}</li>
-            </ul> 
-            <p>
-                <img class="img-rounded img-responsive" src="${theme_default.pathImages}preview.png"  title="#i18n{theme.manage_themes.previewLabel} ${theme_default.themeDescription}" alt=" ${theme_default.themeDescription}" >
-            </p>
-
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-7 col-md-7">
-        <#list themes_list as theme>
-        <#assign actions = actions_list[theme.codeTheme]>
-        <#if theme_default.themeDescription != theme.themeDescription >
-        <div class="well">
-            <h3 class="text-info">${theme.themeDescription}</h3>
-            <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-6">
-                    <img class="img-rounded img-responsive" src="${theme.pathImages}preview.png"  title="#i18n{theme.manage_themes.previewLabel} ${theme.themeDescription}" alt="${theme.themeDescription}" >
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-6">
-                    <p class="pull-right">
-                        <a class="btn btn-primary btn-xs preview" href="${base_url}jsp/admin/plugins/theme/AdminThemePreview.jsp?theme_test=${theme.codeTheme}" target="previews" title="#i18n{theme.manage_themes.preview}" >
-                            <i class="glyphicon glyphicon-eye-open"></i>
-                        </a>
-
-                        <#if actions?? && actions['MODIFY_THEME']>
-                        <a class="btn btn-primary btn-xs" href="${base_url}jsp/admin/plugins/theme/ModifyTheme.jsp?code_theme=${theme.codeTheme}"  title="#i18n{portal.util.labelModify}" >
-                            <i class="glyphicon glyphicon-edit"></i>
-                        </a>
-                        </#if>
-                        <#if permission_modify_global_theme>
-                        <a class="btn btn-success btn-xs" href="${base_url}jsp/admin/plugins/theme/DoModifyGlobalTheme.jsp?theme=${theme.codeTheme}" title="#i18n{theme.manage_themes.buttonChangeChoose}">
-                            <i class="glyphicon glyphicon-ok"></i>
-                        </a>
-                        </#if>
-                        <#if actions?? && actions['DELETE_THEME']>
-                        <a class="btn btn-danger btn-xs" href="jsp/admin/plugins/theme/RemoveTheme.jsp?code_theme=${theme.codeTheme}"  title="Supprimer" >
-                            <i class="glyphicon glyphicon-trash"></i>
-                        </a>
-                        </#if>
-                    </p>
-                    <br>
-                    <hr class="badge badge-inverse">						
-                    <ul>
-                        <li><strong>#i18n{theme.manage_themes.author} :</strong>  <a href="${theme_default.themeAuthorUrl}" target="_author_url">${theme_default.themeAuthor}</a></li>
-                        <li><strong>#i18n{theme.manage_themes.version}</strong> : ${theme.themeVersion}</li>
-                        <li><strong>#i18n{theme.manage_themes.licence}</strong> : ${theme.themeLicence}</li>
-                    </ul> 
-                </div>
-            </div>
-        </div>
-        </#if>		
-        </#list>
-    </div>
-</div>
-<div class="col-xs-12 col-sm-12 col-md-12 alert alert-info">
-    <i class="glyphicon glyphicon-exclamation-sign"></i>&nbsp;<a href="jsp/admin/system/ManageCaches.jsp?plugin_name=">#i18n{theme.manage_themes.emptyCache}</a>
-</div>
-</fieldset>
+													<#if actions?? && actions['MODIFY_THEME']>
+													<a class="btn btn-primary btn-xs btn-flat" href="${base_url}jsp/admin/plugins/theme/ModifyTheme.jsp?code_theme=${theme.codeTheme}"  title="#i18n{portal.util.labelModify}" >
+														<i class="glyphicon glyphicon-edit"></i>
+													</a>
+													</#if>
+													<#if permission_modify_global_theme>
+													<a class="btn btn-success btn-xs btn-flat" href="${base_url}jsp/admin/plugins/theme/DoModifyGlobalTheme.jsp?theme=${theme.codeTheme}" title="#i18n{theme.manage_themes.buttonChangeChoose}">
+														<i class="glyphicon glyphicon-ok"></i>
+													</a>
+													</#if>
+													<#if actions?? && actions['DELETE_THEME']>
+													<a class="btn btn-danger btn-xs btn-flat" href="jsp/admin/plugins/theme/RemoveTheme.jsp?code_theme=${theme.codeTheme}"  title="Supprimer" >
+														<i class="glyphicon glyphicon-trash"></i>
+													</a>
+													</#if>
+												</p>
+												<br>
+												<hr class="badge badge-inverse">						
+												<ul>
+													<li><strong>#i18n{theme.manage_themes.author} :</strong>  <a href="${theme_default.themeAuthorUrl}" target="_author_url">${theme_default.themeAuthor}</a></li>
+													<li><strong>#i18n{theme.manage_themes.version}</strong> : ${theme.themeVersion}</li>
+													<li><strong>#i18n{theme.manage_themes.licence}</strong> : ${theme.themeLicence}</li>
+												</ul> 
+											</div>
+										</div>
+									</div>
+								</div>
+							</#if>		
+						</#list>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 <!--Overlay Container-->
 <div id="preview-frame-container" class="col-xs-12 col-sm-12 col-md-12">
