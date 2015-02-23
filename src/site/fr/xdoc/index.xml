@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document>
-	<properties>
-		<title>Plugin</title>
-	</properties>
-	<body>
-		<section name="Plugin">
-			<subsection name="Introduction">
-			</subsection>
-		</section>
-	</body>
+    <properties>
+        <title>Plugin Theme</title>
+    </properties>
+    <body>
+        <section name="Plugin Theme">
+            <subsection name="Introduction">
+                <p>
+                    Ce plugin permet de gérer des thèmes graphiques différents pour le site. 
+                </p>
+            </subsection>
+        </section>
+    </body>
 </document>
