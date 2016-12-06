@@ -1,4 +1,5 @@
 @import url("http://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
+@import url("../../../css/page_template_styles.css");
 @import url("style.css");
 
 body { padding-top: 50px }
