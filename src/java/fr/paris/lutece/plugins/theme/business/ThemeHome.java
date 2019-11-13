@@ -47,7 +47,7 @@ import fr.paris.lutece.util.ReferenceList;
 public final class ThemeHome
 {
     // Static variable pointed at the DAO instance
-    private static IThemeDAO _dao = (IThemeDAO) SpringContextService.getBean( "theme.themeDAO" );
+    private static IThemeDAO _dao = SpringContextService.getBean( "theme.themeDAO" );
 
     /**
      * Creates a new ThemeHome object.
@@ -140,12 +140,7 @@ public final class ThemeHome
     {
         Theme theme = ThemeHome.findByPrimaryKey( strCodeTheme, plugin );
 
-        if ( theme != null )
-        {
-            return true;
-        }
-
-        return false;
+        return theme != null;
     }
 
     /**

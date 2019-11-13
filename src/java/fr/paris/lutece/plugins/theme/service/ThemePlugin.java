@@ -46,6 +46,7 @@ public class ThemePlugin extends PluginDefaultImplementation
     /**
      * Initialize the plugin form
      */
+    @Override
     public void init(  )
     {
         ThemeService.getInstance(  ).init(  );

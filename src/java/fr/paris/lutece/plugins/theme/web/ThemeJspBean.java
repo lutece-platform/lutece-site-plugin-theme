@@ -86,13 +86,13 @@ public class ThemeJspBean extends PluginAdminPageJspBean
      */
     public String getManageThemes( HttpServletRequest request )
     {
-        Map<String, Object> model = new HashMap<String, Object>(  );
+        Map<String, Object> model = new HashMap<>(  );
 
         Collection<Theme> listThemes = ThemeService.getInstance(  ).getThemesList(  );
-        Map<String, Map<String, Boolean>> listActions = new HashMap<String, Map<String, Boolean>>(  );
+        Map<String, Map<String, Boolean>> listActions = new HashMap<>(  );
         for ( Theme theme : listThemes )
         {
-        	Map<String, Boolean> listPermissions = new HashMap<String, Boolean>(  );
+        	Map<String, Boolean> listPermissions = new HashMap<>(  );
         	boolean bPermissionModify = RBACService.isAuthorized( Theme.RESOURCE_TYPE, theme.getCodeTheme(  ),
                     ThemeResourceIdService.PERMISSION_MODIFY_THEME, getUser(  ) );
         	boolean bPermissionDelete = RBACService.isAuthorized( Theme.RESOURCE_TYPE, theme.getCodeTheme(  ),
@@ -127,7 +127,7 @@ public class ThemeJspBean extends PluginAdminPageJspBean
      */
     public String doModifyGlobalTheme( HttpServletRequest request )
     {
-        String strUrl = StringUtils.EMPTY;
+        String strUrl;
         String strTheme = request.getParameter( ThemeConstants.PARAMETER_THEME );
 
         if ( StringUtils.isNotBlank( strTheme ) )
@@ -152,7 +152,7 @@ public class ThemeJspBean extends PluginAdminPageJspBean
      */
     public String doModifyUserTheme( HttpServletRequest request, HttpServletResponse response )
     {
-        String strUrl = StringUtils.EMPTY;
+        String strUrl;
         String strTheme = request.getParameter( ThemeConstants.PARAMETER_THEME );
         String strForwardUrl = request.getParameter( ThemeConstants.PARAMETER_URL );
 
@@ -192,7 +192,7 @@ public class ThemeJspBean extends PluginAdminPageJspBean
             throw new AccessDeniedException( ERROR_INVALID_TOKEN );
         }
 
-        HashMap<String, Object> model = new HashMap<String, Object>(  );
+        HashMap<String, Object> model = new HashMap<>(  );
         model.put( ThemeConstants.MARK_BASE_URL, AppPathService.getBaseUrl( request ) );
 
         HtmlTemplate template = AppTemplateService.getTemplate( TEMPLATE_CREATE_THEME, getLocale(  ), model );
@@ -209,7 +209,7 @@ public class ThemeJspBean extends PluginAdminPageJspBean
     public String getModifyTheme( HttpServletRequest request )
         throws AccessDeniedException
     {
-        String strUrl = StringUtils.EMPTY;
+        String strUrl;
         String strCodeTheme = request.getParameter( ThemeConstants.PARAMETER_CODE_THEME );
 
         if ( StringUtils.isNotBlank( strCodeTheme ) )
@@ -222,7 +222,7 @@ public class ThemeJspBean extends PluginAdminPageJspBean
                 throw new AccessDeniedException( ERROR_INVALID_TOKEN );
             }
 
-            HashMap<String, Object> model = new HashMap<String, Object>(  );
+            HashMap<String, Object> model = new HashMap<>(  );
             model.put( ThemeConstants.MARK_BASE_URL, AppPathService.getBaseUrl( request ) );
             model.put( ThemeConstants.MARK_THEME, themeToModify );
 
@@ -247,7 +247,7 @@ public class ThemeJspBean extends PluginAdminPageJspBean
     public String doModifyTheme( HttpServletRequest request )
         throws AccessDeniedException
     {
-        String strUrl = StringUtils.EMPTY;
+        String strUrl;
         Theme theme = getThemeFromRequest( request );
 
         // Mandatory fields
@@ -279,7 +279,7 @@ public class ThemeJspBean extends PluginAdminPageJspBean
     public String doCreateTheme( HttpServletRequest request )
         throws AccessDeniedException
     {    	
-        String strUrl = StringUtils.EMPTY;
+        String strUrl;
         Theme theme = getThemeFromRequest( request );
 
         // Mandatory fields
@@ -329,7 +329,7 @@ public class ThemeJspBean extends PluginAdminPageJspBean
     public String doRemoveTheme( HttpServletRequest request )
         throws AccessDeniedException
     {
-        String strUrl = StringUtils.EMPTY;
+        String strUrl;
         String strKey = request.getParameter( ThemeConstants.PARAMETER_CODE_THEME );
 
         if ( StringUtils.isNotBlank( strKey ) )

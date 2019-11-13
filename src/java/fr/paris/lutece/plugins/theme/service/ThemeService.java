@@ -54,7 +54,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class ThemeService implements IThemeService
 {
-    private static ThemeService _singleton;
+    private static ThemeService _singleton = new ThemeService( );
 
     /**
      * Return the ThemeService singleton
@@ -63,11 +63,6 @@ public class ThemeService implements IThemeService
      */
     public static ThemeService getInstance(  )
     {
-        if ( _singleton == null )
-        {
-            _singleton = new ThemeService(  );
-        }
-
         return _singleton;
     }
 
