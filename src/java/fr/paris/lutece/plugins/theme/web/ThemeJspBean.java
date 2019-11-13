@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2014, Mairie de Paris
+ * Copyright (c) 2002-2019, Mairie de Paris
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -86,13 +86,13 @@ public class ThemeJspBean extends PluginAdminPageJspBean
      */
     public String getManageThemes( HttpServletRequest request )
     {
-        Map<String, Object> model = new HashMap<String, Object>(  );
+        Map<String, Object> model = new HashMap<>(  );
 
         Collection<Theme> listThemes = ThemeService.getInstance(  ).getThemesList(  );
-        Map<String, Map<String, Boolean>> listActions = new HashMap<String, Map<String, Boolean>>(  );
+        Map<String, Map<String, Boolean>> listActions = new HashMap<>(  );
         for ( Theme theme : listThemes )
         {
-        	Map<String, Boolean> listPermissions = new HashMap<String, Boolean>(  );
+        	Map<String, Boolean> listPermissions = new HashMap<>(  );
         	boolean bPermissionModify = RBACService.isAuthorized( Theme.RESOURCE_TYPE, theme.getCodeTheme(  ),
                     ThemeResourceIdService.PERMISSION_MODIFY_THEME, getUser(  ) );
         	boolean bPermissionDelete = RBACService.isAuthorized( Theme.RESOURCE_TYPE, theme.getCodeTheme(  ),
@@ -127,7 +127,7 @@ public class ThemeJspBean extends PluginAdminPageJspBean
      */
     public String doModifyGlobalTheme( HttpServletRequest request )
     {
-        String strUrl = StringUtils.EMPTY;
+        String strUrl;
         String strTheme = request.getParameter( ThemeConstants.PARAMETER_THEME );
 
         if ( StringUtils.isNotBlank( strTheme ) )
@@ -152,7 +152,7 @@ public class ThemeJspBean extends PluginAdminPageJspBean
      */
     public String doModifyUserTheme( HttpServletRequest request, HttpServletResponse response )
     {
-        String strUrl = StringUtils.EMPTY;
+        String strUrl;
         String strTheme = request.getParameter( ThemeConstants.PARAMETER_THEME );
         String strForwardUrl = request.getParameter( ThemeConstants.PARAMETER_URL );
 
@@ -189,10 +189,10 @@ public class ThemeJspBean extends PluginAdminPageJspBean
         if ( !RBACService.isAuthorized( Theme.RESOURCE_TYPE, RBAC.WILDCARD_RESOURCES_ID,
                     ThemeResourceIdService.PERMISSION_CREATE_THEME, getUser(  ) ) )
         {
-            throw new AccessDeniedException(  );
+            throw new AccessDeniedException( ERROR_INVALID_TOKEN );
         }
 
-        HashMap<String, Object> model = new HashMap<String, Object>(  );
+        HashMap<String, Object> model = new HashMap<>(  );
         model.put( ThemeConstants.MARK_BASE_URL, AppPathService.getBaseUrl( request ) );
 
         HtmlTemplate template = AppTemplateService.getTemplate( TEMPLATE_CREATE_THEME, getLocale(  ), model );
@@ -209,7 +209,7 @@ public class ThemeJspBean extends PluginAdminPageJspBean
     public String getModifyTheme( HttpServletRequest request )
         throws AccessDeniedException
     {
-        String strUrl = StringUtils.EMPTY;
+        String strUrl;
         String strCodeTheme = request.getParameter( ThemeConstants.PARAMETER_CODE_THEME );
 
         if ( StringUtils.isNotBlank( strCodeTheme ) )
@@ -219,10 +219,10 @@ public class ThemeJspBean extends PluginAdminPageJspBean
             if ( !RBACService.isAuthorized( Theme.RESOURCE_TYPE, themeToModify.getCodeTheme(  ),
                         ThemeResourceIdService.PERMISSION_MODIFY_THEME, getUser(  ) ) )
             {
-                throw new AccessDeniedException(  );
+                throw new AccessDeniedException( ERROR_INVALID_TOKEN );
             }
 
-            HashMap<String, Object> model = new HashMap<String, Object>(  );
+            HashMap<String, Object> model = new HashMap<>(  );
             model.put( ThemeConstants.MARK_BASE_URL, AppPathService.getBaseUrl( request ) );
             model.put( ThemeConstants.MARK_THEME, themeToModify );
 
@@ -247,7 +247,7 @@ public class ThemeJspBean extends PluginAdminPageJspBean
     public String doModifyTheme( HttpServletRequest request )
         throws AccessDeniedException
     {
-        String strUrl = StringUtils.EMPTY;
+        String strUrl;
         Theme theme = getThemeFromRequest( request );
 
         // Mandatory fields
@@ -256,7 +256,7 @@ public class ThemeJspBean extends PluginAdminPageJspBean
             if ( !RBACService.isAuthorized( Theme.RESOURCE_TYPE, theme.getCodeTheme(  ),
                         ThemeResourceIdService.PERMISSION_MODIFY_THEME, getUser(  ) ) )
             {
-                throw new AccessDeniedException(  );
+                throw new AccessDeniedException( ERROR_INVALID_TOKEN );
             }
 
             ThemeService.getInstance(  ).update( theme );
@@ -279,7 +279,7 @@ public class ThemeJspBean extends PluginAdminPageJspBean
     public String doCreateTheme( HttpServletRequest request )
         throws AccessDeniedException
     {    	
-        String strUrl = StringUtils.EMPTY;
+        String strUrl;
         Theme theme = getThemeFromRequest( request );
 
         // Mandatory fields
@@ -288,7 +288,7 @@ public class ThemeJspBean extends PluginAdminPageJspBean
             if ( !RBACService.isAuthorized( Theme.RESOURCE_TYPE, RBAC.WILDCARD_RESOURCES_ID,
                         ThemeResourceIdService.PERMISSION_CREATE_THEME, getUser(  ) ) )
             {
-                throw new AccessDeniedException(  );
+                throw new AccessDeniedException( ERROR_INVALID_TOKEN );
             }
 
             ThemeService.getInstance(  ).create( theme );
@@ -329,7 +329,7 @@ public class ThemeJspBean extends PluginAdminPageJspBean
     public String doRemoveTheme( HttpServletRequest request )
         throws AccessDeniedException
     {
-        String strUrl = StringUtils.EMPTY;
+        String strUrl;
         String strKey = request.getParameter( ThemeConstants.PARAMETER_CODE_THEME );
 
         if ( StringUtils.isNotBlank( strKey ) )
@@ -337,7 +337,7 @@ public class ThemeJspBean extends PluginAdminPageJspBean
             if ( !RBACService.isAuthorized( Theme.RESOURCE_TYPE, strKey,
                         ThemeResourceIdService.PERMISSION_DELETE_THEME, getUser(  ) ) )
             {
-                throw new AccessDeniedException(  );
+                throw new AccessDeniedException( ERROR_INVALID_TOKEN );
             }
 
             Theme globalTheme = ThemeService.getInstance(  ).getGlobalTheme(  );
