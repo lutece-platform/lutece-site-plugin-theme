@@ -189,7 +189,7 @@ public class ThemeJspBean extends PluginAdminPageJspBean
         if ( !RBACService.isAuthorized( Theme.RESOURCE_TYPE, RBAC.WILDCARD_RESOURCES_ID,
                     ThemeResourceIdService.PERMISSION_CREATE_THEME, getUser(  ) ) )
         {
-            throw new AccessDeniedException(  );
+            throw new AccessDeniedException( ERROR_INVALID_TOKEN );
         }
 
         HashMap<String, Object> model = new HashMap<String, Object>(  );
@@ -219,7 +219,7 @@ public class ThemeJspBean extends PluginAdminPageJspBean
             if ( !RBACService.isAuthorized( Theme.RESOURCE_TYPE, themeToModify.getCodeTheme(  ),
                         ThemeResourceIdService.PERMISSION_MODIFY_THEME, getUser(  ) ) )
             {
-                throw new AccessDeniedException(  );
+                throw new AccessDeniedException( ERROR_INVALID_TOKEN );
             }
 
             HashMap<String, Object> model = new HashMap<String, Object>(  );
@@ -256,7 +256,7 @@ public class ThemeJspBean extends PluginAdminPageJspBean
             if ( !RBACService.isAuthorized( Theme.RESOURCE_TYPE, theme.getCodeTheme(  ),
                         ThemeResourceIdService.PERMISSION_MODIFY_THEME, getUser(  ) ) )
             {
-                throw new AccessDeniedException(  );
+                throw new AccessDeniedException( ERROR_INVALID_TOKEN );
             }
 
             ThemeService.getInstance(  ).update( theme );
@@ -288,7 +288,7 @@ public class ThemeJspBean extends PluginAdminPageJspBean
             if ( !RBACService.isAuthorized( Theme.RESOURCE_TYPE, RBAC.WILDCARD_RESOURCES_ID,
                         ThemeResourceIdService.PERMISSION_CREATE_THEME, getUser(  ) ) )
             {
-                throw new AccessDeniedException(  );
+                throw new AccessDeniedException( ERROR_INVALID_TOKEN );
             }
 
             ThemeService.getInstance(  ).create( theme );
@@ -337,7 +337,7 @@ public class ThemeJspBean extends PluginAdminPageJspBean
             if ( !RBACService.isAuthorized( Theme.RESOURCE_TYPE, strKey,
                         ThemeResourceIdService.PERMISSION_DELETE_THEME, getUser(  ) ) )
             {
-                throw new AccessDeniedException(  );
+                throw new AccessDeniedException( ERROR_INVALID_TOKEN );
             }
 
             Theme globalTheme = ThemeService.getInstance(  ).getGlobalTheme(  );

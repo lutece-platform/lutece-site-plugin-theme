@@ -33,13 +33,12 @@
  */
 package fr.paris.lutece.plugins.theme.business;
 
-import fr.paris.lutece.plugins.theme.service.ThemePlugin;
+import java.util.Collection;
+
 import fr.paris.lutece.portal.business.style.Theme;
 import fr.paris.lutece.portal.service.plugin.Plugin;
 import fr.paris.lutece.portal.service.spring.SpringContextService;
 import fr.paris.lutece.util.ReferenceList;
-
-import java.util.Collection;
 
 
 /**
@@ -48,8 +47,7 @@ import java.util.Collection;
 public final class ThemeHome
 {
     // Static variable pointed at the DAO instance
-    private static IThemeDAO _dao = (IThemeDAO) SpringContextService.getPluginBean( ThemePlugin.PLUGIN_NAME,
-            "theme.themeDAO" );
+    private static IThemeDAO _dao = (IThemeDAO) SpringContextService.getBean( "theme.themeDAO" );
 
     /**
      * Creates a new ThemeHome object.
