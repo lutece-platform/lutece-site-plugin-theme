@@ -49,15 +49,41 @@ public final class ThemeDAO implements IThemeDAO
 {
     private static final String SQL_QUERY_SELECT = " SELECT code_theme, theme_description, path_images, path_css, theme_author, " +
         " theme_author_url, theme_version, theme_licence, path_js FROM theme_theme WHERE code_theme = ?";
+    private static final String SQL_QUERY_INSERT = " INSERT INTO theme_theme ( code_theme, theme_description, path_images, path_css," +
+        " theme_author, theme_author_url, theme_version, theme_licence, path_js ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? )";
+    private static final String SQL_QUERY_DELETE = " DELETE FROM theme_theme WHERE code_theme = ?";
+    private static final String SQL_QUERY_UPDATE = " UPDATE theme_theme SET theme_description = ?, path_images = ?, " +
+        " path_css = ? , theme_author = ?, theme_author_url = ?, theme_version = ?, " +
+        " theme_licence = ?, path_js = ? WHERE code_theme = ?";
     private static final String SQL_QUERY_SELECTALL = " SELECT code_theme, theme_description, path_images, path_css, theme_author, " +
         " theme_author_url, theme_version, theme_licence, path_js FROM theme_theme ORDER BY code_theme";
     private static final String SQL_QUERY_SELECT_THEME = " SELECT code_theme, theme_description FROM theme_theme";
     private static final String SQL_QUERY_SELECT_GLOBAL_THEME = " SELECT tt.code_theme, tt.theme_description, tt.path_images, tt.path_css, " +
         " tt.theme_author, tt.theme_author_url, tt.theme_version, tt.theme_licence, tt.path_js " +
-        " FROM theme_theme tt WHERE tt.code_theme = ( SELECT entity_value FROM core_datastore WHERE entity_key='theme.globalthemecode' )";
-    private static final String SQL_QUERY_UPDATE_GLOBAL_THEME = " UPDATE core_datastore SET entity_value = ? WHERE entity_key='theme.globalthemecode'";
-    private static final String SQL_QUERY_UPDATE_GLOBAL_THEME_VERSION = " UPDATE core_datastore SET entity_value = ? WHERE entity_key='theme.globalThemeVersion'";
-    
+        " FROM theme_theme tt INNER JOIN theme_global ttg ON tt.code_theme = ttg.global_theme_code ";
+    private static final String SQL_QUERY_UPDATE_GLOBAL_THEME = " UPDATE theme_global SET global_theme_code = ? ";
+
+    /**
+     * {@inheritDoc}
+     */
+    public synchronized void insert( Theme theme, Plugin plugin )
+    {
+        DAOUtil daoUtil = new DAOUtil( SQL_QUERY_INSERT, plugin );
+
+        daoUtil.setString( 1, theme.getCodeTheme(  ) );
+        daoUtil.setString( 2, theme.getThemeDescription(  ) );
+        daoUtil.setString( 3, theme.getPathImages(  ) );
+        daoUtil.setString( 4, theme.getPathCss(  ) );
+        daoUtil.setString( 5, theme.getThemeAuthor(  ) );
+        daoUtil.setString( 6, theme.getThemeAuthorUrl(  ) );
+        daoUtil.setString( 7, theme.getThemeVersion(  ) );
+        daoUtil.setString( 8, theme.getThemeLicence(  ) );
+        daoUtil.setString( 9, theme.getPathJs(  ) );
+
+        daoUtil.executeUpdate(  );
+        daoUtil.free(  );
+    }
+
     /**
      * {@inheritDoc}
      */
@@ -86,6 +112,38 @@ public final class ThemeDAO implements IThemeDAO
         daoUtil.free(  );
 
         return theme;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public void delete( String strCodeTheme, Plugin plugin )
+    {
+        DAOUtil daoUtil = new DAOUtil( SQL_QUERY_DELETE, plugin );
+        daoUtil.setString( 1, strCodeTheme );
+        daoUtil.executeUpdate(  );
+        daoUtil.free(  );
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public void store( Theme theme, Plugin plugin )
+    {
+        DAOUtil daoUtil = new DAOUtil( SQL_QUERY_UPDATE, plugin );
+
+        daoUtil.setString( 1, theme.getThemeDescription(  ) );
+        daoUtil.setString( 2, theme.getPathImages(  ) );
+        daoUtil.setString( 3, theme.getPathCss(  ) );
+        daoUtil.setString( 4, theme.getThemeAuthor(  ) );
+        daoUtil.setString( 5, theme.getThemeAuthorUrl(  ) );
+        daoUtil.setString( 6, theme.getThemeVersion(  ) );
+        daoUtil.setString( 7, theme.getThemeLicence(  ) );
+        daoUtil.setString( 8, theme.getPathJs(  ) );
+        daoUtil.setString( 9, theme.getCodeTheme(  ) );
+
+        daoUtil.executeUpdate(  );
+        daoUtil.free(  );
     }
 
     /**
@@ -142,25 +200,16 @@ public final class ThemeDAO implements IThemeDAO
     /**
      * {@inheritDoc }
      */
-    public void setGlobalTheme( String strGlobalTheme, String strGlobalThemeVersion, Plugin plugin )
+    public void setGlobalTheme( String strGlobalTheme, Plugin plugin )
     {
         DAOUtil daoUtil = new DAOUtil( SQL_QUERY_UPDATE_GLOBAL_THEME, plugin );
 
         daoUtil.setString( 1, strGlobalTheme );
 
         daoUtil.executeUpdate(  );
-
         daoUtil.free(  );
-
-        DAOUtil daoUtil2 = new DAOUtil( SQL_QUERY_UPDATE_GLOBAL_THEME_VERSION, plugin );
-
-        daoUtil2.setString( 1, strGlobalThemeVersion );
-
-        daoUtil2.executeUpdate(  );
-
-        daoUtil2.free(  );
     }
-   
+
     /**
      * {@inheritDoc }
      */

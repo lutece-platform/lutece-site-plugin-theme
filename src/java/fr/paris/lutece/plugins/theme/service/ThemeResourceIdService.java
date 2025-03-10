@@ -42,7 +42,7 @@ import fr.paris.lutece.util.ReferenceList;
 
 import java.util.Locale;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 
 
 /**
@@ -52,9 +52,15 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class ThemeResourceIdService extends ResourceIdService
 {
+    public static final String PERMISSION_CREATE_THEME = "CREATE_THEME";
+    public static final String PERMISSION_MODIFY_THEME = "MODIFY_THEME";
+    public static final String PERMISSION_DELETE_THEME = "DELETE_THEME";
     public static final String PERMISSION_MODIFY_GLOBAL_THEME = "MODIFY_GLOBAL_THEME";
-    private static final String PROPERTY_LABEL_RESOURCE_TYPE = "rbac.theme.permission.label.resource_type_theme";
-    private static final String PROPERTY_LABEL_MODIFY_GLOBAL_THEME = "rbac.theme.permission.label.modify_global_theme";
+    private static final String PROPERTY_LABEL_RESOURCE_TYPE = "theme.permission.label.resource_type_theme";
+    private static final String PROPERTY_LABEL_CREATE_THEME = "theme.permission.label.create_theme";
+    private static final String PROPERTY_LABEL_MODIFY_THEME = "theme.permission.label.modify_theme";
+    private static final String PROPERTY_LABEL_DELETE_THEME = "theme.permission.label.delete_theme";
+    private static final String PROPERTY_LABEL_MODIFY_GLOBAL_THEME = "theme.permission.label.modify_global_theme";
 
     /**
      * Create a new instance of ThemeResourceIdService
@@ -67,8 +73,7 @@ public class ThemeResourceIdService extends ResourceIdService
     /**
     * Initializes the service
     */
-    @Override
-    public void register( )
+    public void register(  )
     {
         ResourceType rt = new ResourceType(  );
         rt.setResourceIdServiceClass( ThemeResourceIdService.class.getName(  ) );
@@ -76,6 +81,21 @@ public class ThemeResourceIdService extends ResourceIdService
         rt.setResourceTypeLabelKey( PROPERTY_LABEL_RESOURCE_TYPE );
 
         Permission p = new Permission(  );
+        p.setPermissionKey( PERMISSION_CREATE_THEME );
+        p.setPermissionTitleKey( PROPERTY_LABEL_CREATE_THEME );
+        rt.registerPermission( p );
+
+        p = new Permission(  );
+        p.setPermissionKey( PERMISSION_MODIFY_THEME );
+        p.setPermissionTitleKey( PROPERTY_LABEL_MODIFY_THEME );
+        rt.registerPermission( p );
+
+        p = new Permission(  );
+        p.setPermissionKey( PERMISSION_DELETE_THEME );
+        p.setPermissionTitleKey( PROPERTY_LABEL_DELETE_THEME );
+        rt.registerPermission( p );
+        
+        p = new Permission(  );
         p.setPermissionKey( PERMISSION_MODIFY_GLOBAL_THEME );
         p.setPermissionTitleKey( PROPERTY_LABEL_MODIFY_GLOBAL_THEME );
         rt.registerPermission( p );
@@ -83,13 +103,22 @@ public class ThemeResourceIdService extends ResourceIdService
         ResourceTypeManager.registerResourceType( rt );
     }
 
-    @Override
+    /**
+    * Returns a list of theme resource ids
+    * @param locale The current locale
+    * @return A list of resource ids
+    */
     public ReferenceList getResourceIdList( Locale locale )
     {
         return ThemeService.getInstance(  ).getThemes(  );
     }
 
-    @Override
+    /**
+    * Returns the Title of a given resource
+    * @param strTheme the theme key
+    * @param locale The current locale
+    * @return The Title of a given resource
+    */
     public String getTitle( String strTheme, Locale locale )
     {
         Theme theme = ThemeService.getInstance(  ).getTheme( strTheme );
