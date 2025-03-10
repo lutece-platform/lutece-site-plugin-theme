@@ -51,16 +51,14 @@ public final class ThemeConstants
     public static final String MARK_THEME_DEFAULT = "theme_default";
     public static final String MARK_THEME = "theme";
     public static final String MARK_BASE_URL = "base_url";
-    public static final String MARK_ACTIONS_LIST = "actions_list";
-    public static final String MARK_PERMISSION_CREATE_THEME = "permission_create_theme";
     public static final String MARK_PERMISSION_MODIFY_GLOBAL_THEME = "permission_modify_global_theme";
 
     // PARAMETERS
     public static final String PARAMETER_THEME = "theme";
+    public static final String PARAMETER_THEME_VERSION = "theme_version";
     public static final String PARAMETER_URL = "url";
     public static final String PARAMETER_CODE_THEME = "code_theme";
     public static final String PARAMETER_THEME_LICENCE = "theme_licence";
-    public static final String PARAMETER_THEME_VERSION = "theme_version";
     public static final String PARAMETER_THEME_AUTHOR_URL = "theme_author_url";
     public static final String PARAMETER_THEME_AUTHOR = "theme_author";
     public static final String PARAMETER_PATH_CSS = "path_css";
@@ -72,8 +70,6 @@ public final class ThemeConstants
     public static final String PROPERTY_MANAGE_THEMES_PAGE_TITLE = "theme.manage_themes.page_title";
 
     // MESSAGES
-    public static final String MESSAGE_CONFIRM_REMOVE_THEME = "theme.message.confirm_remove_theme";
-    public static final String MESSAGE_CANNOT_DELETE_THEME = "theme.message.cannot_delete_theme";
     public static final String MESSAGE_OBJECT_NOT_FOUND = "theme.message.object_not_found";
 
     /**

@@ -10,4 +10,5 @@ INSERT INTO theme_theme (code_theme, theme_description, path_images, path_css, t
 	('cosmo', 'Cosmo', 'themes/cosmo/img/', 'themes/cosmo/css', 'Bootswatch', 'http://bootswatch.com/', '1.0', 'Apache 2.0', 'js/'),
 	('united', 'United', 'themes/united/img/', 'themes/united/css', 'Bootswatch', 'http://bootswatch.com/', '1.0', 'Apache 2.0', 'js/');
 	
-INSERT INTO theme_global VALUES ('blue');
+INSERT INTO core_datastore VALUES ('theme.globalThemeCode','lutece');
+INSERT INTO core_datastore VALUES ('theme.globalThemeVersion','1.0.0');

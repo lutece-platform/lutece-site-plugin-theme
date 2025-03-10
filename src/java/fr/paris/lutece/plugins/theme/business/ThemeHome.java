@@ -48,53 +48,13 @@ import java.util.Collection;
 public final class ThemeHome
 {
     // Static variable pointed at the DAO instance
-    private static IThemeDAO _dao = (IThemeDAO) SpringContextService.getPluginBean( ThemePlugin.PLUGIN_NAME,
-            "theme.themeDAO" );
+    private static IThemeDAO _dao = (IThemeDAO) SpringContextService.getBean( "theme.themeDAO" );
 
     /**
      * Creates a new ThemeHome object.
      */
     private ThemeHome(  )
     {
-    }
-
-    /**
-     * Creation of an instance of a theme
-     *
-     * @param theme An instance of a theme which contains the informations to store
-     * @param plugin Plugin
-     * @return The instance of a theme which has been created with its primary key.
-     */
-    public static Theme create( Theme theme, Plugin plugin )
-    {
-        _dao.insert( theme, plugin );
-
-        return theme;
-    }
-
-    /**
-     * Update of the theme which is specified
-     *
-     * @param theme The instance of the theme which contains the data to store
-     * @param plugin Plugin
-     * @return The instance of the theme which has been updated
-     */
-    public static Theme update( Theme theme, Plugin plugin )
-    {
-        _dao.store( theme, plugin );
-
-        return theme;
-    }
-
-    /**
-     * Remove the theme whose identifier is specified in parameter
-     *
-     * @param strCodeTheme The identifier of the theme to remove
-     * @param plugin Plugin
-     */
-    public static void remove( String strCodeTheme, Plugin plugin )
-    {
-        _dao.delete( strCodeTheme, plugin );
     }
 
     /**
@@ -156,9 +116,9 @@ public final class ThemeHome
      * @param strGlobalTheme The Global Theme
      * @param plugin Plugin
      */
-    public static void setGlobalTheme( String strGlobalTheme, Plugin plugin )
+    public static void setGlobalTheme( String strGlobalTheme, String strGlobalThemeVersion, Plugin plugin )
     {
-        _dao.setGlobalTheme( strGlobalTheme, plugin );
+        _dao.setGlobalTheme( strGlobalTheme, strGlobalThemeVersion, plugin );
     }
 
     /**

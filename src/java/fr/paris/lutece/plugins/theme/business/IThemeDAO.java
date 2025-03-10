@@ -46,14 +46,6 @@ import java.util.Collection;
 public interface IThemeDAO
 {
     /**
-     * Insert a new record in the table.
-     *
-     * @param mode The mode object
-     * @param plugin Plugin
-     */
-    void insert( Theme mode, Plugin plugin );
-
-    /**
      * load the data of Level from the table
      *
      * @param strCodeTheme The indentifier of the object Theme
@@ -62,22 +54,7 @@ public interface IThemeDAO
      */
     Theme load( String strCodeTheme, Plugin plugin );
 
-    /**
-     * Delete a record from the table
-     *
-     * @param strCodeTheme The indentifier of the object Theme
-     * @param plugin Plugin
-     */
-    void delete( String strCodeTheme, Plugin plugin );
-
-    /**
-     * Update the record in the table
-     *
-     * @param theme The instance of the Theme to update
-     * @param plugin Plugin
-     */
-    void store( Theme theme, Plugin plugin );
-
+    
     /**
      * Returns a list of all the themes
      *
@@ -100,7 +77,7 @@ public interface IThemeDAO
      * @param strGlobalTheme The Global Theme
      * @param plugin Plugin
      */
-    void setGlobalTheme( String strGlobalTheme, Plugin plugin );
+    void setGlobalTheme( String strGlobalTheme, String strGlobalThemeVersion, Plugin plugin );
 
     /**
      * Returns the global theme
