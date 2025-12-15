@@ -40,8 +40,9 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
+import fr.paris.lutece.api.user.User;
 import fr.paris.lutece.plugins.theme.service.ThemeResourceIdService;
 import fr.paris.lutece.plugins.theme.service.ThemeService;
 import fr.paris.lutece.plugins.theme.utils.constants.ThemeConstants;
@@ -77,6 +78,11 @@ public class ThemeJspBean extends PluginAdminPageJspBean
     // JSP
     private static final String JSP_URL_DO_REMOVE_THEME = "jsp/admin/plugins/theme/DoRemoveTheme.jsp";
     private static final String JSP_MANAGE_THEMES = "ManageThemes.jsp";
+    
+    // Labels
+    private static final String PROPERTY_LABEL_CREATE_THEME = "theme.permission.label.create_theme";
+    private static final String PROPERTY_LABEL_MODIFY_THEME = "theme.permission.label.modify_theme";
+    private static final String PROPERTY_LABEL_DELETE_THEME = "theme.permission.label.delete_theme";
 
     /**
      * Returns the list of Themes
@@ -94,9 +100,9 @@ public class ThemeJspBean extends PluginAdminPageJspBean
         {
         	Map<String, Boolean> listPermissions = new HashMap<String, Boolean>(  );
         	boolean bPermissionModify = RBACService.isAuthorized( Theme.RESOURCE_TYPE, theme.getCodeTheme(  ),
-                    ThemeResourceIdService.PERMISSION_MODIFY_THEME, getUser(  ) );
+                    ThemeResourceIdService.PERMISSION_MODIFY_THEME, (User) getUser(  ) );
         	boolean bPermissionDelete = RBACService.isAuthorized( Theme.RESOURCE_TYPE, theme.getCodeTheme(  ),
-                    ThemeResourceIdService.PERMISSION_DELETE_THEME, getUser(  ) );
+                    ThemeResourceIdService.PERMISSION_DELETE_THEME, (User) getUser(  ) );
         	listPermissions.put( ThemeResourceIdService.PERMISSION_MODIFY_THEME, bPermissionModify );
         	listPermissions.put( ThemeResourceIdService.PERMISSION_DELETE_THEME, bPermissionDelete );
         	
@@ -108,10 +114,10 @@ public class ThemeJspBean extends PluginAdminPageJspBean
         model.put( ThemeConstants.MARK_ACTIONS_LIST, listActions );
         model.put( ThemeConstants.MARK_PERMISSION_CREATE_THEME,
             RBACService.isAuthorized( Theme.RESOURCE_TYPE, RBAC.WILDCARD_RESOURCES_ID,
-                ThemeResourceIdService.PERMISSION_CREATE_THEME, getUser(  ) ) );
+                ThemeResourceIdService.PERMISSION_CREATE_THEME, (User) getUser(  ) ) );
         model.put( ThemeConstants.MARK_PERMISSION_MODIFY_GLOBAL_THEME,
                 RBACService.isAuthorized( Theme.RESOURCE_TYPE, RBAC.WILDCARD_RESOURCES_ID,
-                    ThemeResourceIdService.PERMISSION_MODIFY_GLOBAL_THEME, getUser(  ) ) );
+                    ThemeResourceIdService.PERMISSION_MODIFY_GLOBAL_THEME, (User) getUser(  ) ) );
         
         setPageTitleProperty( ThemeConstants.PROPERTY_MANAGE_THEMES_PAGE_TITLE );
 
@@ -187,9 +193,9 @@ public class ThemeJspBean extends PluginAdminPageJspBean
         throws AccessDeniedException
     {
         if ( !RBACService.isAuthorized( Theme.RESOURCE_TYPE, RBAC.WILDCARD_RESOURCES_ID,
-                    ThemeResourceIdService.PERMISSION_CREATE_THEME, getUser(  ) ) )
+                    ThemeResourceIdService.PERMISSION_CREATE_THEME, (User) getUser(  ) ) )
         {
-            throw new AccessDeniedException(  );
+            throw new AccessDeniedException( ThemeConstants.MESSAGE_RBAC_NOT_AUTHORIZED + " : " + PROPERTY_LABEL_CREATE_THEME );
         }
 
         HashMap<String, Object> model = new HashMap<String, Object>(  );
@@ -217,9 +223,9 @@ public class ThemeJspBean extends PluginAdminPageJspBean
             Theme themeToModify = ThemeService.getInstance(  ).getTheme( strCodeTheme );
 
             if ( !RBACService.isAuthorized( Theme.RESOURCE_TYPE, themeToModify.getCodeTheme(  ),
-                        ThemeResourceIdService.PERMISSION_MODIFY_THEME, getUser(  ) ) )
+                        ThemeResourceIdService.PERMISSION_MODIFY_THEME, (User) getUser(  ) ) )
             {
-                throw new AccessDeniedException(  );
+                throw new AccessDeniedException( ThemeConstants.MESSAGE_RBAC_NOT_AUTHORIZED + " : " + PROPERTY_LABEL_MODIFY_THEME );
             }
 
             HashMap<String, Object> model = new HashMap<String, Object>(  );
@@ -254,9 +260,9 @@ public class ThemeJspBean extends PluginAdminPageJspBean
         if ( !isMissingFields( request ) )
         {
             if ( !RBACService.isAuthorized( Theme.RESOURCE_TYPE, theme.getCodeTheme(  ),
-                        ThemeResourceIdService.PERMISSION_MODIFY_THEME, getUser(  ) ) )
+                        ThemeResourceIdService.PERMISSION_MODIFY_THEME, (User) getUser(  ) ) )
             {
-                throw new AccessDeniedException(  );
+                throw new AccessDeniedException( ThemeConstants.MESSAGE_RBAC_NOT_AUTHORIZED + " : " + PROPERTY_LABEL_MODIFY_THEME );
             }
 
             ThemeService.getInstance(  ).update( theme );
@@ -286,9 +292,9 @@ public class ThemeJspBean extends PluginAdminPageJspBean
         if ( !isMissingFields( request ) )
         {
             if ( !RBACService.isAuthorized( Theme.RESOURCE_TYPE, RBAC.WILDCARD_RESOURCES_ID,
-                        ThemeResourceIdService.PERMISSION_CREATE_THEME, getUser(  ) ) )
+                        ThemeResourceIdService.PERMISSION_CREATE_THEME, (User) getUser(  ) ) )
             {
-                throw new AccessDeniedException(  );
+                throw new AccessDeniedException( ThemeConstants.MESSAGE_RBAC_NOT_AUTHORIZED + " : " + PROPERTY_LABEL_CREATE_THEME );
             }
 
             ThemeService.getInstance(  ).create( theme );
@@ -335,9 +341,9 @@ public class ThemeJspBean extends PluginAdminPageJspBean
         if ( StringUtils.isNotBlank( strKey ) )
         {
             if ( !RBACService.isAuthorized( Theme.RESOURCE_TYPE, strKey,
-                        ThemeResourceIdService.PERMISSION_DELETE_THEME, getUser(  ) ) )
+                    ThemeResourceIdService.PERMISSION_DELETE_THEME, (User) getUser(  ) ) )
             {
-                throw new AccessDeniedException(  );
+                throw new AccessDeniedException( ThemeConstants.MESSAGE_RBAC_NOT_AUTHORIZED + " : " + PROPERTY_LABEL_DELETE_THEME );
             }
 
             Theme globalTheme = ThemeService.getInstance(  ).getGlobalTheme(  );

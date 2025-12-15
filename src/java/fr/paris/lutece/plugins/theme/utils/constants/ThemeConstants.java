@@ -75,6 +75,7 @@ public final class ThemeConstants
     public static final String MESSAGE_CONFIRM_REMOVE_THEME = "theme.message.confirm_remove_theme";
     public static final String MESSAGE_CANNOT_DELETE_THEME = "theme.message.cannot_delete_theme";
     public static final String MESSAGE_OBJECT_NOT_FOUND = "theme.message.object_not_found";
+    public static final String MESSAGE_RBAC_NOT_AUTHORIZED = "theme.message.rbac_not_authorized";
 
     /**
      * Private constructor
